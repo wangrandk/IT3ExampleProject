@@ -10,19 +10,34 @@ public class PatientService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Patient> getGiraffes() {
-        return GiraffeDao.getInstance().getGiraffes();
+        return PatientDao.getInstance().getGiraffes();
     }
+
     @GET
     @Path("{cpr}")
+    @Produces(MediaType.APPLICATION_JSON)
     public Patient getPatient(@PathParam("cpr") String cpr){
+        return PatientDao.getInstance().getPatientBycpr(cpr);
 
-        return null;
     }
+
+    @DELETE
+    @Path("{cpr}")
+    public void  deletePatient(@PathParam("cpr") String cpr){
+         PatientDao.getInstance().deletePatientByName(cpr);
+    }
+
+    /*@POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createPatient(Patient p){
+        return Response.status(400).entity("message").build();
+    }*/
+
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Patient postPatient(Patient p) {
-        GiraffeDao.getInstance().getGiraffes().add(p);
+        PatientDao.getInstance().getGiraffes().add(p);
         return p;
     }
 

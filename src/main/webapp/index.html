@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Girafbutikken</title>
+    <title>Hospital</title>
 
     <script src="script.js"></script>
 </head>
@@ -11,12 +11,19 @@
     Velkommen til Girafbutikken
 </h1>
 
-<button onclick="hentGiraffer();">test</button>
-<ul id="giraffer">
+<button onclick="hentGiraffer();">Show patient</button>
+<ul id="patient">
 </ul>
-<form id="girafform">
-    <input type="text" name="name">
+<form id="patientform">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="cpr" placeholder="cpr">
 </form>
-<button onclick="opretGiraf()">Ny giraf</button>
+<button onclick="opretGiraf()">create new patient</button>
+
+<form id="deleteform">
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="cpr" placeholder="cpr">
+</form>
+<button onclick="deletePatient()">Delete patient</button>
 </body>
 </html>
