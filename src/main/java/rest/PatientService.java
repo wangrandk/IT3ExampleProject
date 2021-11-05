@@ -24,7 +24,7 @@ public class PatientService {
     @DELETE
     @Path("{cpr}")
     public void  deletePatient(@PathParam("cpr") String cpr){
-         PatientDao.getInstance().deletePatientByName(cpr);
+         PatientDao.getInstance().deletePatientByCpr(cpr);
     }
 
     /*@POST

@@ -1,4 +1,4 @@
-async function opretGiraf(){
+async function CreatePatient(){
     let patientform = document.getElementById("patientform");
     let formData = new FormData(patientform)
     let patientJson = Object.fromEntries(formData);
@@ -10,10 +10,10 @@ async function opretGiraf(){
         }
     })
     alert (res);
-    await hentGiraffer();
+    await GetPatient();
 }
 
-async function hentGiraffer(){
+async function GetPatient(){
     let result = await fetch("rest/patients")
     console.log(result.status)
     if (result.status!=200){
@@ -35,13 +35,13 @@ async function deletePatient(){
         }
     })
     alert (res);
-    await hentGiraffer();
+    await GetPatient();
 
 }
 function updateGiraffes(json) {
     let listelements =""
     json.forEach(function(e){
-        listelements += ("<li>"+e+"</li>")
+        listelements += ("<li>"+e.name + " "+e.cpr+"</li>")
     })
 
     let girafList = document.getElementById("patient");

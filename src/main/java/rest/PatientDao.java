@@ -32,7 +32,7 @@ public class PatientDao {
         return giraffes.stream().filter(c-> Objects.equals(c.Cpr, cpr)).findFirst().orElse(null);
     }
 
-    public void deletePatientByName (String cpr){
+    public void deletePatientByCpr (String cpr){
        giraffes.removeIf(c -> Objects.equals(c.Cpr ,cpr));
     }
 
