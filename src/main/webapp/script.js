@@ -14,14 +14,18 @@ async function CreatePatient(){
 }
 
 async function GetPatient(){
-    let result = await fetch("rest/patients")
-    console.log(result.status)
-    if (result.status!=200){
-        alert("noget gik galt!");
-    }
-    let json = await result.json();
-    console.log(json)
-    updateGiraffes(json)
+    /*fetch("http://localhost:8080/IT3ExampleProject_war/patients")
+       .then(resp => resp.json()).then(data => updateGiraffes(data));*/
+
+   let result = await fetch("rest/patients"); //.then(resp => resp.json()).then(data => updateGiraffes(data));
+
+   console.log(result.status)
+   if (result.status!=200){
+       alert("noget gik galt!");
+   }
+   let json = await result.json();
+   console.log(json)
+    //updateGiraffes(json)
 }
 
 async function deletePatient(){
@@ -39,6 +43,7 @@ async function deletePatient(){
 
 }
 function updateGiraffes(json) {
+    console.log(json)
     let listelements =""
     json.forEach(function(e){
         listelements += ("<li>"+e.name + " "+e.cpr+"</li>")
