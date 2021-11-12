@@ -2,8 +2,12 @@ package rest;
 
 import com.google.gson.Gson;
 
+import javax.script.ScriptContext;
+import javax.servlet.annotation.WebServlet;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.io.PrintWriter;
 import java.util.List;
 
 
@@ -16,9 +20,8 @@ public class PatientService {
     //public List<Patient> getGiraffes() {
     //    return PatientDao.getInstance().getGiraffes();
     //}
-    public List<Patient> getGiraffes() {
-        return PatientDao.getInstance().getGiraffes();
-
+    public List<Patient> getPatient() {
+        return PatientDao.getInstance().getPatient();
     }
 
     @GET
@@ -39,14 +42,17 @@ public class PatientService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createPatient(Patient p){
         return Response.status(400).entity("message").build();
-    }*/
-
-
+    }
+*/
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Patient postPatient(Patient p) {
-        PatientDao.getInstance().getGiraffes().add(p);
+        System.out.println("paitent " + p);
+        PatientDao.getInstance().getPatient().add(p);
+        PatientDao.getInstance().savePatient(p);
+        System.out.println("Successfully added paitent: " + p);
         return p;
     }
+
 
 }

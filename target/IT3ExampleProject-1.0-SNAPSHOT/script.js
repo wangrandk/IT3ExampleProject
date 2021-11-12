@@ -11,6 +11,26 @@ async function CreatePatient(){
     })
     alert (res);
     await GetPatient();
+/*
+    var mysql = require('mysql');
+    var con = mysql.createConnection({
+        host: "localhost",
+        user: "myusername",
+        password: "mypassword",
+        database: "mydb"
+    });
+
+    con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+        //Insert a record in the "customers" table:
+        var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
+        con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted");
+        });
+    });
+ */
 }
 
 async function GetPatient(){
@@ -25,7 +45,7 @@ async function GetPatient(){
    }
    let json = await result.json();
    console.log(json)
-    //updateGiraffes(json)
+    updatePatient(json)
 }
 
 async function deletePatient(){
@@ -40,15 +60,17 @@ async function deletePatient(){
     })
     alert (res);
     await GetPatient();
-
 }
-function updateGiraffes(json) {
+
+function updatePatient(json) {
     console.log(json)
     let listelements =""
     json.forEach(function(e){
         listelements += ("<li>"+e.name + " "+e.cpr+"</li>")
     })
+    let patientList = document.getElementById("patient");
+    patientList.innerHTML=listelements
+}
+async function insertPatient(){
 
-    let girafList = document.getElementById("patient");
-    girafList.innerHTML=listelements
 }
