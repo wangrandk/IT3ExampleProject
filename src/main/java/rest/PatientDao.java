@@ -22,7 +22,6 @@ public class PatientDao {
         melman.setCpr("20200101");
         patients.add(melman);
         */
-
     }
 
     public static PatientDao getInstance(){
@@ -33,7 +32,6 @@ public class PatientDao {
         return patients;
     }
 
-
     public Patient getPatientBycpr(String cpr) {
         return patients.stream().filter(c-> Objects.equals(c.Cpr, cpr)).findFirst().orElse(null);
     }
@@ -41,7 +39,6 @@ public class PatientDao {
     public void deletePatientByCpr (String cpr){
         patients.removeIf(c -> Objects.equals(c.Cpr ,cpr));
     }
-
 
     public void savePatient(Patient p) {
         try {
@@ -57,10 +54,10 @@ public class PatientDao {
             // get the data using request object
             // sets the data to st pointer
 
-            st.setString(1,   p.getName());
+            st.setString(2,   p.getName());
 
             // Same for second parameter
-            st.setString(2,   p.getCpr());
+            st.setString(1,   p.getCpr());
 
             // Execute the insert command using executeUpdate()
             // to make changes in database

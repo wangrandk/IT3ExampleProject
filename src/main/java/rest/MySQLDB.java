@@ -5,7 +5,7 @@ import java.sql.*;
 public class MySQLDB {
 
     public static void main(String[] args) {
-        try{
+      /*  try{
             //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","ran","0119");
             Connection con = MySQLDB.getConnection();
             Statement st = con.createStatement();
@@ -18,13 +18,13 @@ public class MySQLDB {
         }catch(Exception e)
         {
             System.out.println(e.getMessage());
-        }
+        }*/
     }
 
     public static Connection getConnection(){
         Connection con = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","ran","0119");
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
