@@ -2,28 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hospital</title>
-
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
-<h1>
-    Velkommen til Hospitalet
-</h1>
 
-<button onclick="GetPatient();">Show patient</button>
-<ul id="patient">
-</ul>
-<form id="patientform" >
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="cpr" placeholder="cpr">
-</form>
-<button type="submit" onclick="CreatePatient()">create new patient</button>
+<div class ="center">
+    <h1>login side</h1>
+    <form id="patientform">
+        <label for="uname"><b>Brugenavn</b></label> <input type="text" name="name" required> <br>
+        <label for="cpr"><b>cpr</b></label> <input type="text" name="cpr" required> <br>
+        <label for="psw"><b>Password</b></label> <input type="password" name="password" required> <br>
+    </form>
 
-<form id="deleteform">
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="cpr" placeholder="cpr">
-</form>
-<button type="submit" onclick="deletePatient()">Delete patient</button>
+    <button type="submit" onclick="CreatePatient()">Log ind</button>
+
+
+
+</div>
+
 </body>
 </html>

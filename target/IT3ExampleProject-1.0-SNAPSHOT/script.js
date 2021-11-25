@@ -11,26 +11,6 @@ async function CreatePatient(){
     })
     alert (res);
     await GetPatient();
-/*
-    var mysql = require('mysql');
-    var con = mysql.createConnection({
-        host: "localhost",
-        user: "myusername",
-        password: "mypassword",
-        database: "mydb"
-    });
-
-    con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
-        //Insert a record in the "customers" table:
-        var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
-        con.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted");
-        });
-    });
- */
 }
 
 async function GetPatient(){
@@ -68,9 +48,8 @@ function updatePatient(json) {
     json.forEach(function(e){
         listelements += ("<li>"+e.name + " "+e.cpr+"</li>")
     })
-    let patientList = document.getElementById("patient");
+    //let patientList = document.getElementById("patient");
+    let patientList = document.getElementById("patientform");
     patientList.innerHTML=listelements
 }
-async function insertPatient(){
 
-}

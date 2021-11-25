@@ -44,20 +44,25 @@ public class PatientDao {
         try {
             // Initialize the database
             Connection con = MySQLDB.getConnection();
-            System.out.println(con);
-
+            System.out.println("connection established: "+con);
+            System.out.println("name: "+ p.getName());
+            System.out.println("cpr: " +p.getCpr());
+            System.out.println("password: " +p.getPassword());
             // Create a SQL query to insert data into demo table
             // demo table consists of two columns, so two '?' is used
-            PreparedStatement st = con.prepareStatement("insert into hospital.patient  values(?, ?)");
+            PreparedStatement st = con.prepareStatement("insert into hospital.patient   values(?, ?, ?, ?)");
 
             // For the first parameter,
             // get the data using request object
             // sets the data to st pointer
-
+            st.setString(1,   p.getCpr());
             st.setString(2,   p.getName());
 
             // Same for second parameter
-            st.setString(1,   p.getCpr());
+            st.setString(3,   p.getPassword());
+            // Same for third parameter
+            //st.setString(3,   p.getPassword());
+            st.setString(4,   null);
 
             // Execute the insert command using executeUpdate()
             // to make changes in database
